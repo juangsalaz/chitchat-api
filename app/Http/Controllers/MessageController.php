@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\BaseController as BaseController;
 use App\Events\MessageSent;
+use App\Jobs\ProcessMessage;
 
 class MessageController extends BaseController
 {
@@ -33,10 +34,12 @@ class MessageController extends BaseController
             $messageData['attachment_path'] = $filePath;
         }
 
-        $message = Message::create($messageData);
+        $message = $chatroom->messages()->create($messageData);
 
         //broadcast the message to another users
         broadcast(new MessageSent($message))->toOthers();
+
+        ProcessMessage::dispatch($message, $chatroom);
 
         return response()->json($message, 201);
     }
