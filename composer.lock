@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8e4e7eed170f7766319a45a2f526b879",
+    "content-hash": "fd7244cb80e31d6ec908fea155fe68a5",
     "packages": [
         {
             "name": "brick/math",
@@ -1053,6 +1053,45 @@
                 }
             ],
             "time": "2023-12-03T19:50:20+00:00"
+        },
+        {
+            "name": "innovareti/password-policy",
+            "version": "v1.4.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/innovareti/password-policy.git",
+                "reference": "90d128ca09ec04c2e5591cbc1d690157a6d6bc30"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/innovareti/password-policy/zipball/90d128ca09ec04c2e5591cbc1d690157a6d6bc30",
+                "reference": "90d128ca09ec04c2e5591cbc1d690157a6d6bc30",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": [
+                    "src/PasswordPolicy/Providers/Laravel/PasswordPolicyServiceProvider"
+                ]
+            },
+            "autoload": {
+                "psr-4": {
+                    "PasswordPolicy\\": "src/PasswordPolicy/",
+                    "PasswordPolicy\\Tests\\": "tests/",
+                    "PasswordPolicy\\Models\\": "src/Models",
+                    "PasswordPolicy\\Database\\Factories\\": "database/factories"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "A library to intuitively create password policies and validate a subject against them.",
+            "support": {
+                "issues": "https://github.com/innovareti/password-policy/issues",
+                "source": "https://github.com/innovareti/password-policy/tree/v1.4.4"
+            },
+            "time": "2022-12-02T18:20:37+00:00"
         },
         {
             "name": "laravel/framework",

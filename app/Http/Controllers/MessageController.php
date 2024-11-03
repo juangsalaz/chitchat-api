@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\BaseController as BaseController;
+use App\Events\MessageSent;
 
 class MessageController extends BaseController
 {
@@ -33,6 +34,9 @@ class MessageController extends BaseController
         }
 
         $message = Message::create($messageData);
+
+        //broadcast the message to another users
+        broadcast(new MessageSent($message))->toOthers();
 
         return response()->json($message, 201);
     }
